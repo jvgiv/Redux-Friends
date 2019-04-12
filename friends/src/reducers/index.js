@@ -42,6 +42,13 @@ export const reducer = ( state = initialState, action ) => {
                 fetchingFriends: true,
                 errorStatusCode: null
             }
+        case FETCH_FD_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                fetchingFriends: false,
+                friends: action.payload
+            }
         case FETCH_FD_FAILURE:
             return {
                 ...state,
