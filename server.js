@@ -9,42 +9,60 @@ const token =
 let nextId = 7;
 
 let friends = [
-  {
-    id: 1,
-    name: 'Ben',
-    age: 30,
-    email: 'ben@lambdaschool.com'
-  },
+  // {
+  //   episode_title: 'Simpsons fire',
+  //   number_in_season: 1,
+  //   quote_id: 1,
+  //   raw_character_text: 'Homer',
+  //   season: 1,
+  //   spoken_words: "d'oh. There is a humongous dog.  It ate my food.  I cannot believe it!"
+  // },
   {
     id: 2,
-    name: 'Austen',
-    age: 45,
-    email: 'austen@lambdaschool.com'
+    character: 'Homer',
+    quote: "Donuts"
   },
   {
     id: 3,
-    name: 'Ryan',
-    age: 15,
-    email: 'ryan@lambdaschool.com'
+    character: 'Marge',
+    quote: "Homer stop"
   },
   {
     id: 4,
-    name: 'Dustin',
-    age: 25,
-    email: 'D-munny@lambdaschool.com'
+    character: 'Marge',
+    quote: "Bart and Lisa"
   },
   {
     id: 5,
-    name: 'Sean',
-    age: 35,
-    email: 'sean@lambdaschool.com'
+    character: 'Bart',
+    quote: "Eat my shorts"
   },
   {
     id: 6,
-    name: 'Michelle',
-    age: 67,
-    email: 'michelle@gmail.com'
-  }
+    character: 'Bart',
+    quote: "Weiners"
+  },
+  {
+    id: 7,
+    character: 'Maggie',
+    quote: "something something"
+  },
+  {
+    id: 8,
+    character: 'Maggie',
+    quote: "i'm a baby"
+  },
+  {
+    id: 9,
+    character: 'Lisa',
+    quote: "saxophone"
+  },
+  {
+    id: 10,
+    character: 'Lisa',
+    quote: "I play saxophone"
+  },
+
 ];
 
 app.use(bodyParser.json());
@@ -52,17 +70,18 @@ app.use(bodyParser.json());
 app.use(cors());
 
 function authenticator(req, res, next) {
-  const { authorization } = req.headers;
-  if (authorization === token) {
-    next();
-  } else {
-    res.status(403).json({ error: 'User be logged in to do that.' });
-  }
+  next()
+  // const { authorization } = req.headers;
+  // if (authorization === token) {
+  //   next();
+  // } else {
+  //   res.status(403).json({ error: 'User be logged in to do that.' });
+  // }
 }
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'aaaaaa' && password === 'aaaaaa') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
